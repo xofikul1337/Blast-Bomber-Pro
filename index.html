@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blast Bomber Bot Body Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        p {
+            font-size: 16px;
+            color: #333;
+        }
+        .code-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #e74c3c;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .highlight-bg {
+            background-color: #fbe4e4;
+        }
+        .json-key {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .json-value {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<!----Developer Shofikul Islam < Founder : TEAM X 1337 --------------->
+    <h1>Blast Bomber Bot Body Documentation</h1>
+    
+    <h2>ব্লাস্ট বোম্বার বটের বডি যুক্ত করার নিয়ম:</h2>
+    <p>আপনার ভেরিয়েবল হলো: <strong>number</strong></p>
+
+    <h3>পয়েন্ট নাম্বার ১: <strong>number ভেরিয়েবল কি?</strong></h3>
+    <p>আপনি যখন বটে মেসেজ বোম্বিং করার সময়, বট আপনার কাছে আপনার ভিক্টিম এর ১১ ডিজিটের নাম্বার চায়, তখন আপনি যে নাম্বার টা ইনপুট দিবেন, সেটা <strong>number</strong> ভেরিয়েবল এর মধ্যে থাকবে। এজন্য যেকোনো এপিআই এর বডি বটে সাবমিট করার আগে সেখানে ১১ ডিজিট এর নাম্বার কেটে দিয়ে <strong>number</strong> লেখা টা বসিয়ে দিতে হবে। মূলত এটাই হলো <strong>number</strong> ভেরিয়েবল। <br>
+    <strong>Example:</strong> "number" → <strong>number</strong>
+
+    <h3>খেয়াল করুন:</h3>
+    <ul>
+        <li>এপিআই এর বডির ভিতর যেখানেই আপনি নাম্বার বসাবেন, সেই নাম্বারের সামনে পিছনে কোনো Inverted কমা রাখবেন না।</li>
+        <li><strong>ভুল লেখা:</strong> "number"</li>
+        <li><strong>সঠিক লেখা:</strong> number</li>
+    </ul>
+
+    <h3>যদি আপনার বের করা এপিআই এর বডির ভিতর ১১ ডিজিটের নাম্বারের আগে <strong>+88</strong> বা <strong>88</strong> লেখা থাকে, তাহলে ১১ ডিজিটের নাম্বার কেটে দিয়ে সেখান প্লাস দিয়ে নাম্বার ভেরিয়েবল লিখতে হবে।</h3>
+    <p>যেমনঃ <code class="highlight">+number</code></p>
+
+    <h2>উধাহরণ:</h2>
+    <h3>উধাহরণ ১:</h3>
+    <p>এখন, ধরুন আপনার এপিআই বডি এই রকম:</p>
+    <div class="code-block">
+        <span class="json-key">{"email":</span> "example@gmail.com", <span class="json-key">"phone_number":</span> "8801945284"<span class="highlight-bg">}</span>
+    </div>
+    <p>এখানে আপনাকে ১১ ডিজিটের মোবাইল নাম্বারটি কেটে দিতে হবে। অর্থাৎ, 0 থেকে বাকি নাম্বার গুলো কেটে দিতে হবে। তখন লেখাটি হবে এরকম:</p>
+    <div class="code-block">
+        <span class="json-key">{"email":</span> "example@gmail.com", <span class="json-key">"phone_number":</span> <span class="highlight">"88" +number</span><span class="highlight-bg">}</span>
+    </div>
+    <p>এবং বটে আপনি যখন নাম্বার ইনপুট দিবেন তখন আমরা 01 থেকে শুরু করবো। এজন্য 0 এর আগে যেটা থাকবে সেটাকে ডাবল কোটেশন বা ইনভারটেড কমার মধ্যে রেখে, তার সাথে <strong>+number</strong> লিখে দেবো।</p>
+
+    <h3>উধাহরন ২:</h3>
+    <p>যদি আপনার বডির নাম্বার এর জায়গায় আগে পরে কোনো <strong>88</strong> বা <strong>+88</strong> না থাকে, তাহলে সরাসরি আপনার বডিতে থাকা নাম্বার ও ইনভারটেড কমা কেটে দিয়ে <strong>number</strong> লিখে দিবেন।</p>
+    <div class="code-block">
+        <span class="json-key">{"phone_number":</span> "01844445862"<span class="highlight-bg">}</span>
+    </div>
+    <p>এখানে লেখাটি হবে:</p>
+    <div class="code-block">
+        <span class="json-key">{"phone_number":</span> <span class="highlight">number</span><span class="highlight-bg">}</span>
+    </div>
+
+    <h3>আরো একটি উদাহরণ:</h3>
+    <p>যদি আপনার এপিআই বডি এই রকম হয়:</p>
+    <div class="code-block">
+        <span class="json-key">{"phone_number":</span> "+8801924981783", <span class="json-key">"sent":</span> "success", <span class="json-key">"result":</span> "true"<span class="highlight-bg">}</span>
+    </div>
+    <p>তাহলে আপনি লিখবেন:</p>
+    <div class="code-block">
+        <span class="json-key">{"phone_number":</span> <span class="highlight">"+88" +number</span>, <span class="json-key">"sent":</span> "success", <span class="json-key">"result":</span> "true"<span class="highlight-bg">}</span>
+    </div>
+
+    <h3>মুল কথা:</h3>
+    <p>আমরা বডিতে যা আছে তা না দেখে, শুধু নাম্বার এর জায়গায় যদি সরাসরি ১১ ডিজিটের নাম্বার দেয়া থাকে তাহলে ইনভারটেড কমা সহ নাম্বার কেটে দিয়ে সরাসরি <strong>number</strong> লিখে দিবো। এবং যদি ১১ ডিজিটের নাম্বার এর আগে পরে কোনো অতিরিক্ত অংশ থাকে তাহলে সেটা ইনভারটেড কমার মধ্যে রেখে তার সাথে <strong>+number</strong> লিখে দিবো। এভাবে আপনি যেকোনো এপিআই এর বডি লিখতে পারবেন।</p>
+
+</body>
+</html>
