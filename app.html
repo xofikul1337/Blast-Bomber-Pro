@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open BDGroup App with Device ID</title>
+    <script>
+        function openApp() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var deviceId = urlParams.get('device_id');
+            if (deviceId) {
+                var appLink = "intent://#Intent;package=com.jobmedia.jobseeker;scheme=bdgroupbd;S.device_id=" + deviceId + ";end";
+                window.location = appLink;
+            } else {
+                alert("No device_id provided.");
+            }
+            setTimeout(function() {
+                window.location = "https://play.google.com/store/apps/details?id=com.bdgroupbd.app";
+            }, 2000);
+        }
+    </script>
+</head>
+<body onload="openApp()">
+    <h1>If your app does not open, click below to download it from Play Store</h1>
+    <a href="https://play.google.com/store/apps/details?id=com.bdgroupbd.app" target="_blank">Download BDGroup App</a>
+</body>
+</html>
